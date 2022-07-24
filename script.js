@@ -41,14 +41,26 @@ function submitNota() {
 
 
 function calcularNPS() {
-    alert(`Total de respostas: ${totalNotas}
+    document.querySelector(".progress-bar").setAttribute(`id`, ``)
+    console.log(`Total de respostas: ${totalNotas}
             \n detratores: ${detratores} 
             \n neutros: ${neutros}
             \n promotores: ${promotores}`);
     var resultNPS = ((promotores - detratores) / totalNotas) * 100;
-    document.getElementById("respostaNPS").innerHTML = `O valor do nps foi ${resultNPS.toFixed(2)}%`;
-    calcBar()
-    alert(`O valor do nps foi ${resultNPS.toFixed(2)}%`)
+    var barResultNPS = resultNPS + 100;
+    if(resultNPS>=75){
+        document.getElementById("respostaNPS").innerHTML = `Parabéns, ótimo resultado! \n O valor do NPS foi de <strong>${resultNPS.toFixed(0)}%</strong> e a empresa está na <strong>Zona de Excelencia</strong>(75% a 100%)!`;
+    }else if(resultNPS>=50){
+        document.getElementById("respostaNPS").innerHTML = `Bom resultado! \n O valor do NPS foi de <strong>${resultNPS.toFixed(0)}%</strong> e a empresa está na <strong>Zona de Qualidade</strong>(50% a 74%)!`;
+    }else if(resultNPS>=0){
+        document.getElementById("respostaNPS").innerHTML = `Atenção! \n O valor do NPS foi de <strong>${resultNPS.toFixed(0)}%</strong> e a empresa está na <strong>Zona de Aperfeiçoamento</strong>(0% a 49%)!`;
+    }else{
+        document.getElementById("respostaNPS").innerHTML = `Situação perigosa! O valor do NPS foi de <strong>${resultNPS.toFixed(0)}%</strong> e a empresa está na <strong>Zona Crítica</strong>(-100% a -1%)!`;
+    }
+    
+    document.querySelector(".barSubContainer").setAttribute(`style`, `width: ${barResultNPS.toFixed(0)}px`);
+    calcBar();
+    console.log(`O valor do nps foi ${resultNPS.toFixed(2)}%`);
 }
 
 function calcBar() {
@@ -59,6 +71,7 @@ function calcBar() {
 function resetPesquisa(){
     document.getElementById("totalRespostas").innerHTML = ``;
     document.getElementById("respostaNPS").innerHTML = ``;
+    document.querySelector(".progress-bar").setAttribute(`id`, ``)
     resetRadio();
     detratores = 0;
     neutros = 0;

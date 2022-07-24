@@ -1,27 +1,45 @@
 :root {
     --numberButton-size: 54px;
     --numberInput-FontSize: 20px;
-    --main-bg-color: rgb(228, 228, 228);
+
+    --main-bg-color: rgb(233, 233, 233);
+    --second-color: #2ecc71;
+    --third-color: #27ae60;
     --main-font: 'Ubuntu', sans-serif;
+    --font-color-main: #3b3b3b;
 }
 
 * {
     margin: 0;
     padding: 0;
     font-family: var(--main-font);
+    color: var(--font-color-main);
 }
 
 body {
     background-color: var(--main-bg-color);
     margin: 80px;
+    margin-top: 50px;
 }
 
 header {
-    height: 20vh;
+    height: 23vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+}
+
+#main-title{
+    font-size: 52px;
+    font-weight: bold;
+    color: var(--third-color);
+}
+
+#second-title{
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--third-color);
 }
 
 input {
@@ -33,6 +51,8 @@ input {
 
 .numbersContainer {
     height: 20vh;
+    margin-left: 20px;
+    margin-right: 20px;
     display: flex;
     justify-content: space-around;
     align-content: center;
@@ -60,9 +80,10 @@ label {
     height: var(--numberButton-size);
     width: var(--numberButton-size);
     transition: all 0.15s ease-out 0s;
-    background: #cbd1d8;
+    background: #bbc0c5;
     border: solid 1px white;
-    border-radius: 10px;
+    border-radius: 16px;
+    box-shadow: rgba(0, 0, 0, 0.13) 1px 1px 4px;
     color: #fff;
     cursor: pointer;
     outline: none;
@@ -72,21 +93,25 @@ label {
 }
 
 .option-input:hover {
-    background: #9faab7;
+    background: var(--second-color);
+    box-shadow: none;
 }
 
 .option-input:checked {
-    background: #40e0d0;
+    background: var(--second-color);
 }
 
 span {
     position: absolute;
-    font-size: var(--numberInput-FontSize);
+    font-size: calc(1.2*var(--numberInput-FontSize));
     z-index: 1;
+    color: #FFF;
+    text-shadow: #585858 1px 1px 1px;
 }
 
+
 .buttonsContainer {
-    height: 45vh;
+    height: 60vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -98,9 +123,9 @@ span {
     position: relative;
     width: calc(4*var(--numberButton-size));
     padding: 12px 12px;
-    margin: 0px 10px 10px 0px;
+    margin: 0;
     float: left;
-    border-radius: 8px;
+    border-radius: 12px;
     font-size: var(--numberInput-FontSize);
     color: #FFF;
     text-decoration: none;
@@ -120,6 +145,15 @@ button:active {
     border-bottom: 1px solid #2ecc71;
 }
 
+#totalRespostas {
+    font-size: var(--numberInput-FontSize);
+    text-align: center;
+}
+
+#respostaNPS{
+    font-size: calc(1.4*var(--numberInput-FontSize));
+    text-align: center;
+}
 
 #resetPesquisa {
     width: calc(3*var(--numberButton-size));
@@ -127,32 +161,49 @@ button:active {
     font-size: calc(0.85*var(--numberInput-FontSize));
 }
 
-#respostaNPS{
-    font-size: calc(2*var(--numberInput-FontSize));
-}
-
 
 /* PROGRESS BAR */
-.barContainer {
+
+.progressFlex {
+    display: flex;
+}
+
+.numProgress {
+    color: var(--third-color);
+    font-weight: bold;
+    margin: auto;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.barContainer, .barSubContainer {
     height: 20px;
-    width: 80vw;
-    background-color: rgb(46, 41, 41);
+    width: 200px;
+    background-color: rgb(224, 224, 224);
     position: relative;
+    border: solid 3px #27ae60;
     border-radius: 10px;
 }
 
-.barContainer .progress-bar {
+.barSubContainer {
+    width: 0px;
+    border: none;
+    z-index: 0;
+}
+
+.barSubContainer .progress-bar {
     position: absolute;
     height: 100%;
     background-color: #27ae60;
-    border-radius: 10px;
+    border-radius: 7px;
+    /* z-index: 99; */
 }
 
 #play-animation{
-    animation: progress-bar-animation 5s forwards;
+    animation: progress-bar-animation 3s forwards;
 }
 
 @keyframes progress-bar-animation {
-    0% {width: 0%; background-color: red;}
-    100% {width: 100%; background-color: blue;}
+    0% {width: 0%; background-color: rgb(224, 224, 224);}
+    100% {width: 100%; background-color: #2ecc71;}
 }

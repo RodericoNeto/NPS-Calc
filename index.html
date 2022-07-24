@@ -11,14 +11,16 @@
     <link rel="stylesheet" href="style.css">
 
     <!-- Links Fontes -->
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
     <header>
         <!-- Título -->
-        <h1>NPS CALC</h1>
-        <h2>Quanto você recomendaria a empresa?</h2>
+        <h1 id="main-title">NPS CALC</h1>
+        <h2 id="second-title">Quanto você recomendaria a empresa?</h2>
     </header>
 
     <!-- Corpo calculadora. Onde o usuário vai inserir a nota -->
@@ -47,7 +49,7 @@
         <div class="inputNumber">
             <label for="notas">
                 <input type="radio" name="notas" id="nota3" value="3" class="option-input">
-                <span>3</span> 
+                <span>3</span>
             </label>
 
         </div>
@@ -55,49 +57,49 @@
             <label for="notas">
                 <input type="radio" name="notas" id="nota4" value="4" class="option-input">
                 <span>4</span>
-            </label>           
+            </label>
         </div>
         <div class="inputNumber">
             <label for="notas">
                 <input type="radio" name="notas" id="nota5" value="5" class="option-input">
                 <span>5</span>
             </label>
-            
+
         </div>
         <div class="inputNumber">
             <label for="notas">
                 <input type="radio" name="notas" id="nota6" value="6" class="option-input">
                 <span>6</span>
             </label>
-            
+
         </div>
         <div class="inputNumber">
             <label for="notas">
                 <input type="radio" name="notas" id="nota7" value="7" class="option-input">
                 <span>7</span>
             </label>
-            
+
         </div>
         <div class="inputNumber">
             <label for="notas">
                 <input type="radio" name="notas" id="nota8" value="8" class="option-input">
                 <span>8</span>
             </label>
-            
+
         </div>
         <div class="inputNumber">
             <label for="notas">
                 <input type="radio" name="notas" id="nota9" value="9" class="option-input">
                 <span>9</span>
             </label>
-            
+
         </div>
         <div class="inputNumber">
             <label for="notas">
                 <input type="radio" name="notas" id="nota10" value="10" class="option-input">
                 <span>10</span>
             </label>
-            
+
         </div>
     </section>
 
@@ -109,8 +111,14 @@
         <button id="calcNPS" onclick="calcularNPS()">Calcular NPS!</button>
 
         <!-- Progress Bar -->
-        <div class="barContainer">
-            <div class="progress-bar"></div>
+        <div class="progressFlex">
+            <p class="numProgress">-100%</p>
+            <div class="barContainer">
+                <div class="barSubContainer">
+                    <div class="progress-bar"></div>
+                </div>
+            </div>
+            <p class="numProgress">+100%</p>
         </div>
 
 
