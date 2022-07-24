@@ -9,73 +9,116 @@
 
     <!-- Link Css da calculadora -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- Links Fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <header>
         <!-- Título -->
         <h1>NPS CALC</h1>
-        <h2>Net Promoter Score</h2>
+        <h2>Quanto você recomendaria a empresa?</h2>
     </header>
 
     <!-- Corpo calculadora. Onde o usuário vai inserir a nota -->
-    <h2>Quanto você recomendaria a empresa?</h2>
 
     <!-- <form> -->
-        <!-- FAIXA DAS NOTAS A ESCOLHER -->
-        <div class="numbersContainer">
-            <div class="inputNumber">
-                <label for="notas">0</label>
-                <input type="radio" name="notas" id="nota0" value="0" class="inputRadio">
-            </div>
-            <div class="inputNumber">
-                <label for="notas">1</label>
-                <input type="radio" name="notas" id="nota1" value="1" class="inputRadio">
-            </div>
-            <div class="inputNumber">
-                <label for="notas">2</label>
-                <input type="radio" name="notas" id="nota2" value="2" class="inputRadio">
-            </div>
-            <div class="inputNumber">
-                <label for="notas">3</label>
-                <input type="radio" name="notas" id="nota3" value="3">
-            </div>
-            <div class="inputNumber">
-                <label for="notas">4</label>
-                <input type="radio" name="notas" id="nota4" value="4">
-            </div>
-            <div class="inputNumber">
-                <label for="notas">5</label>
-                <input type="radio" name="notas" id="nota5" value="5">
-            </div>
-            <div class="inputNumber">
-                <label for="notas">6</label>
-                <input type="radio" name="notas" id="nota6" value="6">
-            </div>
-            <div class="inputNumber">
-                <label for="notas">7</label>
-                <input type="radio" name="notas" id="nota7" value="7">
-            </div>
-            <div class="inputNumber">
-                <label for="notas">8</label>
-                <input type="radio" name="notas" id="nota8" value="8">
-            </div>
-            <div class="inputNumber">
-                <label for="notas">9</label>
-                <input type="radio" name="notas" id="nota9" value="9">
-            </div>
-            <div class="inputNumber">
-                <label for="notas">10</label>
-                <input type="radio" name="notas" id="nota10" value="10">
-            </div>
+    <!-- FAIXA DAS NOTAS A ESCOLHER -->
+    <section class="numbersContainer">
+        <div class="inputNumber">
+            <label for="notas">
+                <input type="radio" name="notas" id="nota0" value="0" class="option-input">
+                <span>0</span>
+            </label>
         </div>
+        <div class="inputNumber">
+            <label for="notas">
+                <input type="radio" name="notas" id="nota1" value="1" class="option-input">
+                <span>1</span>
+            </label>
+        </div>
+        <div class="inputNumber">
+            <label for="notas">
+                <input type="radio" name="notas" id="nota2" value="2" class="option-input">
+                <span>2</span>
+            </label>
+        </div>
+        <div class="inputNumber">
+            <label for="notas">
+                <input type="radio" name="notas" id="nota3" value="3" class="option-input">
+                <span>3</span> 
+            </label>
+
+        </div>
+        <div class="inputNumber">
+            <label for="notas">
+                <input type="radio" name="notas" id="nota4" value="4" class="option-input">
+                <span>4</span>
+            </label>           
+        </div>
+        <div class="inputNumber">
+            <label for="notas">
+                <input type="radio" name="notas" id="nota5" value="5" class="option-input">
+                <span>5</span>
+            </label>
+            
+        </div>
+        <div class="inputNumber">
+            <label for="notas">
+                <input type="radio" name="notas" id="nota6" value="6" class="option-input">
+                <span>6</span>
+            </label>
+            
+        </div>
+        <div class="inputNumber">
+            <label for="notas">
+                <input type="radio" name="notas" id="nota7" value="7" class="option-input">
+                <span>7</span>
+            </label>
+            
+        </div>
+        <div class="inputNumber">
+            <label for="notas">
+                <input type="radio" name="notas" id="nota8" value="8" class="option-input">
+                <span>8</span>
+            </label>
+            
+        </div>
+        <div class="inputNumber">
+            <label for="notas">
+                <input type="radio" name="notas" id="nota9" value="9" class="option-input">
+                <span>9</span>
+            </label>
+            
+        </div>
+        <div class="inputNumber">
+            <label for="notas">
+                <input type="radio" name="notas" id="nota10" value="10" class="option-input">
+                <span>10</span>
+            </label>
+            
+        </div>
+    </section>
 
     <!-- </form> -->
-    <button id="notaDada" onclick="submitNota()">Enviar Nota</button>
 
-    <button onclick="calcularNPS()">Calcular NPS!</button>
-    <p id="respostaNPS"></p>
-    <button onclick="resetPesquisa()">Resetar Pesquisa</button>
+    <section class="buttonsContainer">
+        <button id="notaDada" onclick="submitNota()">Enviar Nota</button>
+        <p id="totalRespostas"></p>
+        <button id="calcNPS" onclick="calcularNPS()">Calcular NPS!</button>
+
+        <!-- Progress Bar -->
+        <div class="barContainer">
+            <div class="progress-bar"></div>
+        </div>
+
+
+
+        <p id="respostaNPS"></p>
+        <button id="resetPesquisa" onclick="resetPesquisa()">Resetar Pesquisa</button>
+    </section>
+
 
     <script src="script.js"></script>
 </body>
