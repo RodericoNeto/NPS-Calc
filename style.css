@@ -1,12 +1,21 @@
 :root {
+    /* VARIÁVEIS TAMANHO DOS BOTÕES */
     --numberButton-size: 54px;
     --numberInput-FontSize: 20px;
 
+    /* VARIÁVEIS CORES */
     --main-bg-color: rgb(233, 233, 233);
+    --second-bg-color: #bbc5c0;
     --second-color: #2ecc71;
     --third-color: #27ae60;
-    --main-font: 'Ubuntu', sans-serif;
+    /* --second-color: #589ee0;
+    --third-color: #2a547c; */
     --font-color-main: #3b3b3b;
+
+    /* VARIÁVEIS TIPOGRÁFICAS */
+    --main-font: 'Ubuntu', sans-serif;
+    --title-font: 'Secular One', sans-serif;
+
 }
 
 * {
@@ -30,33 +39,34 @@ header {
     justify-content: space-between;
 }
 
-#main-title{
+#main-title, #second-title{
+    font-family: var(--title-font);
     font-size: 52px;
-    font-weight: bold;
     color: var(--third-color);
+    text-align: center;
 }
 
 #second-title{
-    font-size: 32px;
     font-weight: bold;
-    color: var(--third-color);
+    font-family: var(--main-font);
+    font-size: 32px;
 }
 
 input {
     width: var(--numberButton-size);
     height: var(--numberButton-size);
-    background-color: red;
 }
 
 
 .numbersContainer {
     height: 20vh;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 24px;
+    margin-right: 24px;
     display: flex;
     justify-content: space-around;
     align-content: center;
 }
+
 
 .inputNumber {
     width: var(--numberButton-size);
@@ -80,7 +90,7 @@ label {
     height: var(--numberButton-size);
     width: var(--numberButton-size);
     transition: all 0.15s ease-out 0s;
-    background: #bbc0c5;
+    background: var(--second-bg-color);
     border: solid 1px white;
     border-radius: 16px;
     box-shadow: rgba(0, 0, 0, 0.13) 1px 1px 4px;
@@ -129,10 +139,10 @@ span {
     font-size: var(--numberInput-FontSize);
     color: #FFF;
     text-decoration: none;
-    background-color: #2ecc71;
+    background-color: var(--second-color);
     border: none;
-    border-bottom: 5px solid #27ae60;
-    text-shadow: 0px -2px #27ae60;
+    border-bottom: 5px solid var(--third-color);
+    text-shadow: 0px -2px var(--third-color);
     -webkit-transition: all 0.1s;
     transition: all 0.1s;
 }
@@ -142,8 +152,9 @@ button:active {
     -webkit-transform: translate(0px, 5px);
     -ms-transform: translate(0px, 5px);
     transform: translate(0px, 5px);
-    border-bottom: 1px solid #2ecc71;
+    border-bottom: 1px solid var(--second-color);
 }
+
 
 #totalRespostas {
     font-size: var(--numberInput-FontSize);
@@ -179,9 +190,9 @@ button:active {
 .barContainer, .barSubContainer {
     height: 20px;
     width: 200px;
-    background-color: rgb(224, 224, 224);
+    background-color: var(--main-bg-color);
     position: relative;
-    border: solid 3px #27ae60;
+    border: solid 3px var(--third-color);
     border-radius: 10px;
 }
 
@@ -194,7 +205,7 @@ button:active {
 .barSubContainer .progress-bar {
     position: absolute;
     height: 100%;
-    background-color: #27ae60;
+    background-color: var(--third-color);
     border-radius: 7px;
     /* z-index: 99; */
 }
@@ -204,6 +215,52 @@ button:active {
 }
 
 @keyframes progress-bar-animation {
-    0% {width: 0%; background-color: rgb(224, 224, 224);}
-    100% {width: 100%; background-color: #2ecc71;}
+    0% {width: 0%; background-color: var(--third-color);}
+    100% {width: 100%; background-color: var(--second-color);}
+}
+
+
+/* MEDIA QUERY */
+
+@media (max-width: 880px){
+    body{
+        margin: 32px;
+    }
+
+    header{
+        height: 36vh;
+    }
+    .numbersContainer{
+        margin: 50px 0px;
+        height: 70vh;
+        flex-direction: column;
+        align-items: center;
+    }
+    .option-input{
+        height: calc(0.6*var(--numberButton-size));
+        width: calc(4*var(--numberButton-size));
+        border-radius: 8px;
+    }
+    .inputNumber {
+        height: calc(0.6*var(--numberButton-size));
+        width: calc(4*var(--numberButton-size));
+    }
+    .buttonsContainer{
+        height: 80vh;
+    }
+
+}
+
+@media (max-width: 380px){
+
+    body{
+        margin: 16px;
+    }
+
+    header{
+        height: 48vh;
+    }
+    .buttonsContainer{
+        height: 100vh;
+    }
 }
